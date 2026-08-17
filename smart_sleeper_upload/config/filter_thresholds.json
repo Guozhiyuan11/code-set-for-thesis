@@ -1,0 +1,18 @@
+{
+  "environment": {
+    "temp_abs_limit_x100": 20000
+  },
+  "microphone_fft": {
+    "low_power_threshold": 5.0,
+    "low_band_power_threshold": 1.0,
+    "flatwheel_band_threshold": 20.0,
+    "squeal_peak_freq_threshold": 8000.0,
+    "squeal_centroid_threshold": 7000.0,
+    "high_band_threshold": 15.0
+  },
+  "ae": {
+    "low_energy_threshold": 10.0,
+    "event_energy_threshold": 80.0,
+    "event_amplitude_margin": 0.05
+  }
+}

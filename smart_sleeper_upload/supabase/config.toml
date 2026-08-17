@@ -1,0 +1,2 @@
+[functions.ingest-dynamic-v2]
+verify_jwt = false

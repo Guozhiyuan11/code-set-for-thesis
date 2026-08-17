@@ -1,0 +1,77 @@
+{
+  "model_version": "smart-sleeper-ae-v0",
+  "feature_order": [
+    "rtd1_t_x100",
+    "rtd2_t_x100",
+    "rtd3_t_x100",
+    "rtd4_t_x100",
+    "tmp102_t_x100",
+    "moist_pc",
+    "sleeper_rh"
+  ],
+  "training_feature_mapping": {
+    "rtd1_t_x100": "rail1Temp",
+    "rtd2_t_x100": "rail2Temp",
+    "rtd3_t_x100": "sleeperTemp",
+    "rtd4_t_x100": "envMonIntTemp",
+    "tmp102_t_x100": "ambiantTemp",
+    "moist_pc": "moisture",
+    "sleeper_rh": "envMonHumidity"
+  },
+  "median": [
+    22.21,
+    21.96,
+    21.16,
+    21.78,
+    21.06,
+    7.02,
+    57.35
+  ],
+  "iqr": [
+    12.349999999999998,
+    12.190000000000001,
+    11.18,
+    10.29,
+    11.510000000000002,
+    30.86,
+    24.240000000000002
+  ],
+  "overall_threshold": 0.16855469827291727,
+  "field_thresholds": {
+    "rtd1_t_x100": 0.061323296717261125,
+    "rtd2_t_x100": 0.05926919346338109,
+    "rtd3_t_x100": 0.09396766249676931,
+    "rtd4_t_x100": 0.36365500340764234,
+    "tmp102_t_x100": 0.0476165845164642,
+    "moist_pc": 0.039406762062364944,
+    "sleeper_rh": 1.2527208458765615
+  },
+  "random_seed": 20250801,
+  "trained_at_utc": "2026-08-13T04:13:41.916518+00:00",
+  "validation_status": "failed",
+  "metrics": {
+    "test_normal_candidate_rate": 0.026003184063354695,
+    "autoencoder_anomaly_recall": 0.5133333333333333,
+    "recall_by_anomaly_type": {
+      "single_temperature_spike_high": 1.0,
+      "single_temperature_spike_low": 1.0,
+      "single_temperature_gradual_drift": 0.7222222222222222,
+      "single_temperature_permanent_offset": 0.4717948717948718,
+      "single_temperature_stuck": 0.5666666666666667,
+      "multiple_temperature_relationship_mismatch": 1.0,
+      "moisture_sudden_jump": 0.0,
+      "humidity_sudden_jump": 0.5,
+      "temperature_error_code": 1.0
+    }
+  },
+  "training": {
+    "train_records": 114318,
+    "validation_records": 24497,
+    "test_normal_records": 24497,
+    "test_anomaly_records": 482,
+    "validation_mse": 0.03462477752769864,
+    "epochs": 97,
+    "loss": "MSE",
+    "scaler": "median/IQR"
+  }
+}
