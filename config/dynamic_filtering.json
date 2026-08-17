@@ -1,0 +1,85 @@
+{
+  "enabled": true,
+  "enabled_families": [],
+  "enabled_fields": [],
+  "allow_suspect_context": false,
+  "allow_candidate_context": false,
+  "deduplication_capacity": 10000,
+  "recent_context_tolerance_seconds": 300,
+  "peer_sensor_groups": [
+    {
+      "rule_id": "environment.peer_temperature_disagreement",
+      "family": "environment",
+      "fields": [
+        "rtd1_t_x100",
+        "rtd2_t_x100",
+        "rtd3_t_x100",
+        "rtd4_t_x100",
+        "tmp102_t_x100",
+        "temperature_c",
+        "temp"
+      ],
+      "field_scales": {
+        "rtd1_t_x100": 0.01,
+        "rtd2_t_x100": 0.01,
+        "rtd3_t_x100": 0.01,
+        "rtd4_t_x100": 0.01,
+        "tmp102_t_x100": 0.01,
+        "temperature_c": 1,
+        "temp": 1
+      },
+      "aliases": [["temperature_c", "temp"]],
+      "min_available": 3,
+      "spread_threshold": null,
+      "candidate_flag": "peer_sensor_disagreement"
+    }
+  ],
+  "cross_field_rules": [],
+  "cross_family_rules": [],
+  "adaptive": {
+    "default": {
+      "window_size": 20,
+      "min_samples": 10,
+      "mad_score_threshold": null,
+      "epsilon": 0.000001,
+      "minimum_scale": null,
+      "step_threshold": null,
+      "rate_threshold_per_second": null,
+      "min_time_gap_seconds": null,
+      "max_time_gap_seconds": null,
+      "stuck_tolerance": null,
+      "stuck_sample_count": null,
+      "stuck_min_duration_seconds": null,
+      "stuck_enabled": false,
+      "baseline_reentry": {
+        "enabled": false,
+        "consecutive_samples": 4,
+        "value_tolerance": 0.5,
+        "minimum_duration_seconds": 120,
+        "action": "reset"
+      }
+    },
+    "fields": {},
+    "expected_reporting": {},
+    "family_silence": {}
+  },
+  "event_confirmation": {
+    "enabled": true,
+    "minimum_points": 3,
+    "window_points": 5,
+    "maximum_gap_seconds": 300,
+    "minimum_duration_seconds": 0,
+    "enforcement_policy": "confirmed_event"
+  },
+  "model_filter": {
+    "enabled": true,
+    "model_path": "models/autoencoder-v0",
+    "minimum_valid_records": 500,
+    "readiness_window": 200,
+    "fallback_window": 100,
+    "maximum_candidate_rate": 0.1,
+    "fallback_candidate_rate": 0.2,
+    "minimum_input_completeness": 0.95,
+    "fallback_input_completeness": 0.9
+  }
+}
